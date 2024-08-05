@@ -44,8 +44,8 @@ jobs:
             TEST_OUTPUT=$(python -m unittest "$file" --failfast 2>&1)
             printf "%s\n" "$TEST_OUTPUT"
             
-            if ! echo "$TEST_OUTPUT" | grep -Eq "Ran [0-9]+ tests? in"; then
-                echo "No tests were run for $file. Please ensure that there is at least one test case." >&2
-                exit 1
-            fi
+        if ! echo "$TEST_OUTPUT" | grep -Eq "Ran [1-9][0-9]* tests? in"; then
+            echo "No tests were run for $file. Please ensure that there is at least one test case." >&2
+            exit 1
+        fi
         done
