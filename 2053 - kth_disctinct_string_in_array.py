@@ -1,9 +1,18 @@
+# This is a problem given by Leetcode.com
+#https://leetcode.com/problems/kth-distinct-string-in-an-array/description/
+
 import logging
 from unittest import TestCase, main
 
 
 class Solution:
+    """ A distinct string is a string that is present only once in an array.
 
+        Given an array of strings arr, and an integer k, return the kth distinct string present in arr. If there are fewer than k distinct strings, return an empty string "".
+
+        Note that the strings are considered in the order in which they appear in the array.
+    """
+    
     def get_kth_distinct_str(self, arr: list[str], k: int) -> str:
         """ Returns the k-th distinct string from the given list of strings.
 
