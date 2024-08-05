@@ -10,7 +10,7 @@ class ListNode:
         self.val = val
         self.next = next
 
-    def __iter__(self) -> Generator[int, None, list]:
+    def __iter__(self) -> Generator[int, None, None]:
         current = self
 
         while current:
