@@ -23,13 +23,14 @@ class Solution:
     def ${solution_method}(self) -> None:
         return
 
+
 class TestSolution(TestCase):
     def setUp(self) -> None:
         self.solution = Solution()
 
     def test_${solution_method}_valid_case(self) -> None:
         case_1 = None
-        self.solution.${solution_method}(case_1)
+        self.assertEqual(self.solution.${solution_method}(case_1), None)
 
 if __name__ == "__main__":
     main()
