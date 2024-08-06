@@ -5,13 +5,13 @@ from unittest import TestCase, main
 
 
 class Solution:
-    
+
     def longest_palindrome(self, string: str) -> str:
         if not string:
             return ""
         if string == string[::-1]:
             return string
-        
+
         longest: str = string[0]
 
         for i in range(len(string)):
@@ -19,10 +19,10 @@ class Solution:
                 sub = string[i:y]
                 if sub == sub[::-1] and len(sub) > len(longest):
                     longest = sub
-            
+
         return longest
-    
-    
+
+
 class TestSolution(TestCase):
     def setUp(self) -> None:
         self.solution = Solution()
@@ -38,6 +38,7 @@ class TestSolution(TestCase):
         self.assertEqual(self.solution.longest_palindrome(case_3), "bb")
         case_4: str = 'abb'
         self.assertEqual(self.solution.longest_palindrome(case_4), "bb")
+
 
 if __name__ == "__main__":
     main()

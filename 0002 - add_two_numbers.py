@@ -100,11 +100,12 @@ class TestSolution(TestCase):
         self.assertEqual(self.solution.add_two_numbers(linked_list_1=list_node_1, linked_list_2=list_node_2), [0])
 
     def test_add_two_numbers_case_3(self) -> None:
-        first_list: list[int] = [9,9,9,9,9,9,9]
+        first_list: list[int] = [9, 9, 9, 9, 9, 9, 9]
         list_node_1 = ListNode().build_from_int_sequence(first_list)
-        second_list: list[int] = [9,9,9,9]
+        second_list: list[int] = [9, 9, 9, 9]
         list_node_2 = ListNode().build_from_int_sequence(second_list)
-        self.assertEqual(self.solution.add_two_numbers(linked_list_1=list_node_1, linked_list_2=list_node_2), [8,9,9,9,0,0,0,1])
+        self.assertEqual(self.solution.add_two_numbers(linked_list_1=list_node_1, linked_list_2=list_node_2), [8, 9, 9, 9, 0, 0, 0, 1])
+
 
 if __name__ == "__main__":
     main()

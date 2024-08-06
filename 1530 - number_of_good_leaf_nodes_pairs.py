@@ -30,14 +30,14 @@ class TreeNode:
 
         while queue and index < len(root):
             node = queue.pop(0)
-                
+
             # Set the left child
             if index < len(root) and root[index] is not None:
                 left_val = root[index]
                 assert isinstance(left_val, int)
                 node.left = TreeNode(val=left_val)
                 queue.append(node.left)
-            
+
             index += 1
 
             # Set the right child
@@ -46,7 +46,7 @@ class TreeNode:
                 assert isinstance(right_val, int)
                 node.right = TreeNode(val=right_val)
                 queue.append(node.right)
-            
+
             index += 1
 
         return root_node
@@ -69,10 +69,11 @@ DISTANCE_LIMIT: int = 10
 
 
 class Solution:
-    """ You are given the root of a binary tree and an integer distance. 
-        A pair of two different leaf nodes of a binary tree is said to be good if the length of the shortest path between them is less than or equal to distance.
+    """ You are given the root of a binary tree and an integer distance.
+        A pair of two different leaf nodes of a binary tree is said to be good if the length of the shortest path
+        between them is less than or equal to distance.
 
-        Constraints: 
+        Constraints:
             - The number of nodes in the tree is in the range [1, 2^10].
             - 1 <= Node.val <= 100
             - 1 <= distance <= 10
@@ -85,7 +86,7 @@ class Solution:
                 distance (int): The distance to consider leaf nodes as good.
 
             Returns:
-                int: Return the number of good leaf node pairs in the tree.        
+                int: Return the number of good leaf node pairs in the tree.
         """
         self._validate_count_pairs_args(root, distance)
 
@@ -118,14 +119,14 @@ class Solution:
         left = self._dfs(tree_node.left, distance)
         right = self._dfs(tree_node.right, distance)
 
-        for l in left:
-            for r in right:
-                if l + r <= distance:
+        for l_index in left:
+            for r_index in right:
+                if l_index + r_index <= distance:
                     self.counts += 1
 
         return [n + 1 for n in left + right if n + 1 <= distance]
-    
-    def _validate_count_pairs_args(self, root: Sequence[int | None], distance: int) -> bool:      
+
+    def _validate_count_pairs_args(self, root: Sequence[int | None], distance: int) -> bool:
         if len(root) > N_NODES_LIMIT:
             raise ValueError(f"The number of nodes exeeds the limit of {N_NODES_LIMIT} nodes.")
         if distance < 1 or distance > DISTANCE_LIMIT:
@@ -145,12 +146,12 @@ class TestTreeNode(TestCase):
     def check_node(self, node: Any, val: int, left: bool, right: bool) -> TreeNode:
         assert isinstance(node, TreeNode)
         self.assertEqual(node.val, val)
-        
+
         if left:
             self.assertIsInstance(node.left, TreeNode)
         else:
             self.assertIsNone(node.left)
-        
+
         if right:
             self.assertIsInstance(node.right, TreeNode)
         else:
@@ -166,7 +167,7 @@ class TestTreeNode(TestCase):
         tree = self.check_node(tree, 1, True, True)
         # left (2)
         left_child = self.check_node(tree.left, 2, False, True)
-        #right (3)
+        # right (3)
         _ = self.check_node(tree.right, 3, False, False)
         # left_right
         _ = self.check_node(left_child.right, 4, False, False)

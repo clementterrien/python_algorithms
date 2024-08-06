@@ -5,7 +5,7 @@ from collections import Counter
 class Solution:
 
     def frequency_sort(self, nums: list[int]) -> list[int]:
-        """ Given an array of integers nums, sort the array in increasing order based on the frequency of the values. 
+        """ Given an array of integers nums, sort the array in increasing order based on the frequency of the values.
             If multiple values have the same frequency, sort them in decreasing order.
 
             Return the sorted array.
@@ -43,11 +43,10 @@ class TestSolution(TestCase):
 
     def test_frequency_raises_error_with_invalid_value(self) -> None:
         invalid_case_1: list[str] = ["str", "str"]
-        
-        with self.assertRaises(ValueError) as captured:
-            self.solution.frequency_sort(nums=invalid_case_1) #type: ignore
-        self.assertEqual(str(captured.exception), "nums must be an array of integers.")
 
+        with self.assertRaises(ValueError) as captured:
+            self.solution.frequency_sort(nums=invalid_case_1)  # type: ignore
+        self.assertEqual(str(captured.exception), "nums must be an array of integers.")
 
 
 if __name__ == "__main__":

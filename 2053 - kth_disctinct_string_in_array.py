@@ -1,5 +1,5 @@
 # This is a problem given by Leetcode.com
-#https://leetcode.com/problems/kth-distinct-string-in-an-array/description/
+# https://leetcode.com/problems/kth-distinct-string-in-an-array/description/
 
 import logging
 from unittest import TestCase, main
@@ -8,11 +8,12 @@ from unittest import TestCase, main
 class Solution:
     """ A distinct string is a string that is present only once in an array.
 
-        Given an array of strings arr, and an integer k, return the kth distinct string present in arr. If there are fewer than k distinct strings, return an empty string "".
+        Given an array of strings arr, and an integer k, return the kth distinct string present in arr.
+        If there are fewer than k distinct strings, return an empty string "".
 
         Note that the strings are considered in the order in which they appear in the array.
     """
-    
+
     def get_kth_distinct_str(self, arr: list[str], k: int) -> str:
         """ Returns the k-th distinct string from the given list of strings.
 
@@ -33,9 +34,9 @@ class Solution:
             raise ValueError("arr must be an array of str.")
         if not isinstance(k, int) or k < 1:
             raise ValueError("k must be a positive integer")
-        
+
         unique: list[str] = [x for x in arr if arr.count(x) == 1]
-        
+
         if k > len(unique):
             logging.warning(f"get_kth_distinct_str: No {k}(th) disting str found in given array.")
             return ""
@@ -71,25 +72,25 @@ class TestSolution(TestCase):
         k_th: int = 1
         self.assertEqual(self.solution.get_kth_distinct_str(array, k_th), 'b')
         k_th = 2
-        
+
         with self.assertLogs(level="WARNING") as logs:
             self.assertEqual(self.solution.get_kth_distinct_str(array, k_th), '')
             self.assertEqual(logs.records[0].message, f"get_kth_distinct_str: No {k_th}(th) disting str found in given array.")
-    
+
     def test_get_kth_distinct_str_with_invalid_arr(self) -> None:
         invalid_arr_1 = [1, 2]
         k_th = 1
 
         with self.assertRaises(ValueError) as captured:
-            self.solution.get_kth_distinct_str(invalid_arr_1, k_th) # type: ignore
-        
+            self.solution.get_kth_distinct_str(invalid_arr_1, k_th)  # type: ignore
+
         self.assertEqual(str(captured.exception), "arr must be an array of str.")
 
         invalid_arr_2: list[int | str] = ['a', 'b', 'c', 2]
 
         with self.assertRaises(ValueError) as captured:
-            self.solution.get_kth_distinct_str(invalid_arr_2, k_th) # type: ignore
-        
+            self.solution.get_kth_distinct_str(invalid_arr_2, k_th)  # type: ignore
+
         self.assertEqual(str(captured.exception), "arr must be an array of str.")
 
     def test_get_kth_distinct_str_with_invalid_kth(self) -> None:
@@ -97,15 +98,15 @@ class TestSolution(TestCase):
         k_th = 0
 
         with self.assertRaises(ValueError) as captured:
-            self.solution.get_kth_distinct_str(arr, k_th) # type: ignore
-        
+            self.solution.get_kth_distinct_str(arr, k_th)  # type: ignore
+
         self.assertEqual(str(captured.exception), "k must be a positive integer")
 
-        k_th = 'u' # type: ignore
+        k_th = 'u'  # type: ignore
 
         with self.assertRaises(ValueError) as captured:
-            self.solution.get_kth_distinct_str(arr, k_th) # type: ignore
-        
+            self.solution.get_kth_distinct_str(arr, k_th)  # type: ignore
+
         self.assertEqual(str(captured.exception), "k must be a positive integer")
 
     def test_get_kth_distinct_str_returns_empty_string_and_warns_when_k_th_is_not_found(self) -> None:

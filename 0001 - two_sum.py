@@ -1,5 +1,5 @@
 # This is a problem given by Leetcode.com
-#https://leetcode.com/problems/two-sum/description/
+# https://leetcode.com/problems/two-sum/description/
 
 from unittest import TestCase, main
 
@@ -9,9 +9,10 @@ class Solution:
     def two_sum(self, nums: list[int], target: int) -> list[int]:
         """ Find two numbers in a list that add up to a specific target.
 
-            This method takes a list of integers and a target integer. It searches for
-            two distinct indices in the list such that the numbers at those indices add 
-            up to the target. If such a pair is found, it returns the indices as a list. 
+            This method takes a list of integers and a target integer.
+            It searches fortwo distinct indices in the list such that
+            the numbers at those indices add up to the target.
+            If such a pair is found, it returns the indices as a list.
             If no such pair exists, it raises a ValueError.
 
             Args:
@@ -19,8 +20,9 @@ class Solution:
                 target (int): The target sum we are looking for.
 
             Returns:
-                list[int]: A list containing the two indices of the numbers that add up 
-                        to the target. The first index is smaller than the second index.
+                list[int]: A list containing the two indices of the numbers
+                that add up to the target. The first index is smaller than
+                the second index.
 
             Raises:
                 ValueError: If no two numbers add up to the target.
@@ -37,7 +39,7 @@ class Solution:
             for a in list(range(n_nums))[y:n_nums]:
                 if nums[i] + nums[a] == target:
                     return [i, a]
-                
+
         raise ValueError('Given nums have no solutions.')
 
 
@@ -61,7 +63,7 @@ class TestSolution(TestCase):
         self.assertEqual(self.solution.two_sum(nums=case_3, target=target), [15, 16])
 
     def test_two_sums_raises_error_with_no_solution(self) -> None:
-        invalid_case: list[int] = [1,2,3,4,42]
+        invalid_case: list[int] = [1, 2, 3, 4, 42]
         target: int = 104
         with self.assertRaises(ValueError):
             self.solution.two_sum(nums=invalid_case, target=target)

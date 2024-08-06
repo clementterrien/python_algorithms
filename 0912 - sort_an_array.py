@@ -9,6 +9,7 @@ class Solution:
 
         You must solve the problem without using any built-in functions in O(nlog(n)) time complexity and with the smallest space complexity possible.
     """
+
     def sort_array(self, nums: list[int], is_first_call: bool = True) -> list[int]:
         """ Sorts an array of integers in ascending order using the merge sort algorithm.
 
@@ -29,10 +30,10 @@ class Solution:
         """
         if is_first_call and (len(nums) < 2 or not all(isinstance(x, int) for x in nums)):
             raise ValueError("nums must be an array of integers with at least two integers.")
-        
+
         if len(nums) <= 1:
             return nums
-        
+
         divider: int = len(nums) // 2
         left_part: list[int] = nums[:divider]
         right_part: list[int] = nums[divider:]
@@ -83,13 +84,14 @@ class TestSolution(TestCase):
     def test_sort_array_raises_error_with_invalid_nums(self) -> None:
         invalid_case_1 = [0]
         with self.assertRaises(ValueError) as captured:
-            self.solution.sort_array(invalid_case_1) #type: ignore
+            self.solution.sort_array(invalid_case_1)  # type: ignore
         self.assertEqual(str(captured.exception), "nums must be an array of integers with at least two integers.")
 
         invalid_case_2 = ['str', 'str']
         with self.assertRaises(ValueError) as captured:
-            self.solution.sort_array(invalid_case_2) #type: ignore
+            self.solution.sort_array(invalid_case_2)  # type: ignore
         self.assertEqual(str(captured.exception), "nums must be an array of integers with at least two integers.")
+
 
 if __name__ == "__main__":
     main()
