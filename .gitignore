@@ -1,3 +1,6 @@
 __pycache__
-mypy_exec.sh
+
 .flake8
+.vscode
+
+mypy_exec.sh
