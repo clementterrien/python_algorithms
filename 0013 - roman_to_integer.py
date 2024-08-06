@@ -71,12 +71,12 @@ class TestSolution(TestCase):
     def test_roman_to_int_raises_value_error_with_invalid_roman_str(self) -> None:
         case_0: str = "not"
         with self.assertRaises(ValueError) as captured:
-            self.solution.roman_to_int(case_0)
+            self.solution.roman_to_int(case_0)  # type: ignore
         self.assertEqual(str(captured.exception), "invalid roman_str given.")
 
         case_1: int = 1
         with self.assertRaises(ValueError) as captured:
-            self.solution.roman_to_int(case_1)
+            self.solution.roman_to_int(case_1)  # type: ignore
         self.assertEqual(str(captured.exception), "invalid roman_str given.")
 
 
