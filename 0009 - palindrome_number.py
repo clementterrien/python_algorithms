@@ -10,9 +10,8 @@ class Solution:
     def is_palindrome(self, x: int) -> bool:
         """ Determine whether an integer is a palindrome.
 
-            A palindrome is a number that reads the same backward as forward. This method
-            checks if the given integer is a palindrome by converting it to a string and 
-            comparing the string to its reversed version.
+            A palindrome is a number that reads the same backward as forward.
+            This method checks if the given integer is a palindrome by converting it to a string and comparing the string to its reversed version.
 
             Args:
                 x (int): The integer to be checked.
