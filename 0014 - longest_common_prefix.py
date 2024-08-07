@@ -20,8 +20,10 @@ class Solution:
             str: The longest common prefix shared by all the strings in the list.
 
         Raises:
-            ValueError: If the input list is empty.
+            ValueError: If the input list is empty or not containing only strings.
         """
+        if not strs or any([not isinstance(x, str) for x in strs]):
+            raise ValueError("strs must be a list of strings.")
 
         strs.sort(key=len)
 
@@ -46,6 +48,19 @@ class TestSolution(TestCase):
         self.assertEqual(self.solution.longest_common_prefix(case_1), 'fl')
         case_2: list[str] = ["cir", "car"]
         self.assertEqual(self.solution.longest_common_prefix(case_2), 'c')
+
+    def test_longest_common_prefix_invalid_case(self) -> None:
+        case_1: list[str | int] = ["flower", "flow", 1]
+        with self.assertRaises(ValueError) as captured:
+            self.solution.longest_common_prefix(case_1)  # type: ignore
+
+        self.assertEqual(str(captured.exception), "strs must be a list of strings.")
+
+        case_2: list = []
+        with self.assertRaises(ValueError) as captured:
+            self.solution.longest_common_prefix(case_2)  # type: ignore
+
+        self.assertEqual(str(captured.exception), "strs must be a list of strings.")
 
 
 if __name__ == "__main__":
