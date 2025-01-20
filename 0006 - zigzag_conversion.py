@@ -48,20 +48,20 @@ class Solution:
 
         final = ""
 
-        array = [[0 for _ in range(len(string))] for _ in range(n_rows)]
+        array: list[list[str]] = [["0" for _ in range(len(string))] for _ in range(n_rows)]
         i_row: int = 0
         i_col: int = 0
 
         for s in string:
             array[i_row][i_col] = s
-            if i_row != 0 and (array[i_row-1][i_col] == 0 or i_row == n_rows-1):
+            if i_row != 0 and (array[i_row-1][i_col] == "0" or i_row == n_rows-1):
                 i_row -= 1
                 i_col += 1
             else:
                 i_row += 1
 
         for row in array:
-            final += ''.join([x for x in row if x != 0])
+            final += ''.join([x for x in row if x != "0"])
 
         return final
 
