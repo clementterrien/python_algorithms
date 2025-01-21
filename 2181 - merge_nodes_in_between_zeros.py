@@ -1,35 +1,12 @@
-from typing import Any, Generator
+# This is a problem given by Leetcode.com
+# https://leetcode.com/problems/merge-nodes-in-between-zeros/description/
+
 from unittest import TestCase, main
 
+from utils.list_node import ListNode
 
-class ListNode:
-    def __init__(self, val=0, next=None) -> None:
-        self.val = val
-        self.next = next
-
-    def __str__(self) -> str:
-        return str(self.val)
-
-    def __eq__(self, value: object) -> bool:
-        if not isinstance(value, list):
-            return super().__eq__(value)
-        else:
-            return list(self) == value
-
-    def __iter__(self) -> Generator[int, Any, None]:
-        current = self
-        while current:
-            yield current.val
-            current = current.next
-
-    def generate_list_node_from_int_list(self, nums: list[int]) -> "ListNode":
-        current = self
-        for num in nums[1:]:
-            current.next = ListNode(val=num)
-            current = current.next
-
-        return self
-
+ListNode.min_val = 0
+ListNode.max_val = 1000
 
 class Solution:
     """ You are given the head of a linked list (ListNode), which contains a series of integers separated by 0's.
