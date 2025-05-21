@@ -15,7 +15,7 @@ class Solution:
         longest: str = string[0]
 
         for i in range(len(string)):
-            for y in range(i+1, len(string)+1):
+            for y in range(i + 1, len(string) + 1):
                 sub = string[i:y]
                 if sub == sub[::-1] and len(sub) > len(longest):
                     longest = sub

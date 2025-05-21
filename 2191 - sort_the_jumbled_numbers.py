@@ -4,8 +4,8 @@
 from unittest import TestCase, main
 
 MAPPING_LEN: int = 10
-NUM_LIMIT: int = 10**9  # 0 <= nums[i] < 109
-MAX_NNUMS: int = 3*104
+NUM_LIMIT: int = 10 ** 9  # 0 <= nums[i] < 109
+MAX_NNUMS: int = 3 * 104
 
 
 class Solution:

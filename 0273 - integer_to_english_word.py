@@ -56,19 +56,19 @@ class Solution:
 
     def _get_significant_base(self, number: int, round_to_one: bool = False) -> int:
         str_number: str = str(number)
-        number_of_digits_to_return: int = len(str_number) if len(str_number) < 4 else len(str_number) - (len(str_number)-1) % 3
+        number_of_digits_to_return: int = len(str_number) if len(str_number) < 4 else len(str_number) - (len(str_number) - 1) % 3
         str_number = str_number[: number_of_digits_to_return]
 
-        return int(f"{str_number[0] if not round_to_one else 1}{'0'*(len(str_number)-1)}")
+        return int(f"{str_number[0] if not round_to_one else 1}{'0' * (len(str_number) - 1)}")
 
     def _get_largest(self, number: int, round_to_one: bool = False) -> int:
         str_number: str = str(number)
         if len(str_number) <= 3:
-            return int(f"{str_number[0] if not round_to_one else 1}{'0'*(len(str_number)-1)}")
+            return int(f"{str_number[0] if not round_to_one else 1}{'0' * (len(str_number) - 1)}")
 
         unit: int = self._get_unit(number)
 
-        return int(f"{self._get_unit(number) if not round_to_one else 1}{'0'*(len(str_number)-len(str(unit)))}")
+        return int(f"{self._get_unit(number) if not round_to_one else 1}{'0' * (len(str_number) - len(str(unit)))}")
 
     def _get_unit(self, number: int) -> int:
         str_number: str = str(number)

@@ -8,6 +8,7 @@ from utils.list_node import ListNode
 ListNode.min_val = 0
 ListNode.max_val = 1000
 
+
 class Solution:
     """ You are given the head of a linked list (ListNode), which contains a series of integers separated by 0's.
         The beginning and end of the linked list will have Node.val == 0.

@@ -31,7 +31,7 @@ class Solution:
         min_pushes: int = 0
 
         for i, letter in enumerate(mapping):
-            min_pushes += letter[1]*((i // 8)+1)
+            min_pushes += letter[1] * ((i // 8) + 1)
 
         return min_pushes
 

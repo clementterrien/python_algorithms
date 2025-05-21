@@ -41,7 +41,7 @@ class Solution:
             logging.warning(f"get_kth_distinct_str: No {k}(th) disting str found in given array.")
             return ""
         else:
-            return unique[k-1]
+            return unique[-1]
 
 
 class TestSolution(TestCase):

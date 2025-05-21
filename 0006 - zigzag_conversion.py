@@ -54,7 +54,7 @@ class Solution:
 
         for s in string:
             array[i_row][i_col] = s
-            if i_row != 0 and (array[i_row-1][i_col] == "0" or i_row == n_rows-1):
+            if i_row != 0 and (array[i_row - 1][i_col] == "0" or i_row == n_rows - 1):
                 i_row -= 1
                 i_col += 1
             else:
@@ -97,7 +97,7 @@ class TestSolution(TestCase):
         with self.assertRaises(ValueError):
             self.solution.convert(string='', n_rows=2)
         with self.assertRaises(ValueError):
-            self.solution.convert(string='h'*1001, n_rows=2)
+            self.solution.convert(string='h' * 1001, n_rows=2)
         with self.assertRaises(ValueError):
             self.solution.convert(string='hello world', n_rows=2)
 
